@@ -13,6 +13,12 @@ from scipy.spatial import distance
 from sklearn.datasets.samples_generator import make_blobs
 
 
+"""incremental_farthest_search() code snippet taken from 
+The Farthest Neighbors Algorithm - Frolian's Blog
+https://flothesof.github.io/farthest-neighbors.html
+
+The function below is used to find k farthest apart points
+from the given set of points"""
 def incremental_farthest_search(pts, k):
     remaining_points = pts.tolist()[:]
     solution_set = []
@@ -26,6 +32,7 @@ def incremental_farthest_search(pts, k):
     return np.asarray(solution_set)
 
 
+"""The actual k-means algorithm"""
 def k_means(dataset,k, filename, tol=0.0000000000000005, smart_init=False):
     # Set up formatting for the movie files
     Writer = manimation.writers['ffmpeg']
@@ -103,6 +110,7 @@ def k_means(dataset,k, filename, tol=0.0000000000000005, smart_init=False):
             final_ed += sum(distance.cdist(dataset[np.where(labels == i)],[centroids[i]], metric='euclidean'))
     return centroids, labels, final_ed, iter_num
 
+
 #Generating the synthetic data
 N = 600 #Number of data samples
 K = 6 #Number of actual clusters
@@ -123,10 +131,11 @@ plt.ylabel('Sum of L2-norms')
 plt.xlabel('Number of clusters (k)')
 plt.savefig('Optimal_k.png', dpi=500)
 
-    
+"""Uncomment the below code to generate the visualization video
+with and without the centroid initialization"""   
 #centroids1, labels1, ed1, num1 = k_means(data, K, smart_init=False, filename="k_means_visualization_no_init.mp4")
 #centroids2, labels2, ed2, num2 = k_means(data, K, smart_init=True, filename="k_means_visualization_with_init.mp4")
-#
+
 #fig = plt.figure()
 #plt.title('Number of iteration to convergence')
 #plt.ylabel('Number of iterations')
