@@ -17,5 +17,7 @@ The Elbow diagram that correctly gives us the optimum number of clusters (k)
 The final clustering with k=6.
 <img width="1074" alt="Screen Shot 2019-03-19 at 12 12 46 PM" src="https://user-images.githubusercontent.com/32280293/54635046-96ceac00-4a40-11e9-9b6e-46f4da8fdb2b.png">
 
-The figure below clearly shows that the centroid initialization plays a important role in immediate convergence (in terms of number of iterations).
+The figure below clearly shows that the centroid initialization plays an important role in immediate convergence (in terms of number of iterations).
 ![Convergence](https://user-images.githubusercontent.com/32280293/54634181-e44a1980-4a3e-11e9-9ecc-08ea29dfed50.png)
+
+There are many other ways of finding the optimum K and centroid initialization. But that's not the goal of this experiment. The goal of this experiment is to see how the centroids move on every iteration and visually understand how K-means work. The video for the same can be found in the code directory.
